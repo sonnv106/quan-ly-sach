@@ -1,0 +1,32 @@
+form(action= "/users/create" method="POST")
+  label Name
+  span &nbsp
+  input(type="text" name="name")
+  br
+  label Phone Number
+  span &nbsp
+  input(type="text" name="phone")
+  br
+  label Email
+  span &nbsp
+  input(type="text" name="email")
+  br
+  label Password
+  span &nbsp
+  input(type="password" name="password")
+  button Create
+table
+  caption List Users
+  tr
+    th Name
+    th Phone
+    th Email
+    th Action
+  each user in users
+    tr
+      td= user.name
+      td= user.phone
+      td= user.email
+      td
+        a(href="/users/"+user.id+"/delete") Delete
+        a(href="/users/"+user.id+"/update")  Update
