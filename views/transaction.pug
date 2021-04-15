@@ -1,0 +1,24 @@
+h1 Transaction
+form(action= "/transactions/create" method="POST")
+  label(for="bookId") Choose a book
+  select(name="bookId")
+    each book in books
+      option= book.id
+  label(for="userId") Choose an users
+  select(name="userId")
+    each user in users
+      option= user.id
+  button create
+table
+  caption List transaction
+  tr
+    th BookId
+    th UserId
+    th Action
+  each transaction in transactions
+    tr
+      td= transaction.bookId
+      td= transaction.userId
+      td
+        a(href="/transactions/"+transaction.id+"/delete") Delete
+        a(href="/transactions/"+transaction.id+"/update")  Update

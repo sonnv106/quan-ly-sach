@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 var db = require("./db.js")
 var bookRouter= require("./routes/book.route")
 var userRouter =  require("./routes/user.route")
+var transactionRouter =  require("./routes/transaction.route")
 app.set("views", "./views");
 app.set("view engine", "pug");
 
@@ -18,6 +19,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use("/", bookRouter)
 app.use("/users", userRouter)
+app.use("/transactions", transactionRouter)
+
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);

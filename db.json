@@ -6,7 +6,7 @@
       "id": "abz3WKrkg"
     },
     {
-      "title": "Giai thich tieng anh",
+      "title": "De men phieu luu ky",
       "description": "NXB Ha Noi",
       "id": "y0lgG55gG"
     }
@@ -28,6 +28,23 @@
       "email": "trunghieu@gmail.com",
       "password": "123123",
       "id": "0pqf7eiQm"
+    }
+  ],
+  "transactions": [
+    {
+      "bookId": "abz3WKrkg",
+      "userId": "tEamb6dKR",
+      "id": "fYRFiR6CU"
+    },
+    {
+      "bookId": "abz3WKrkg",
+      "userId": "tEamb6dKR",
+      "id": "Eexje2XhE"
+    },
+    {
+      "bookId": "y0lgG55gG",
+      "userId": "0pqf7eiQm",
+      "id": "9HoLcs5g6"
     }
   ]
 }
