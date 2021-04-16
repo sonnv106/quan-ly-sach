@@ -17,7 +17,8 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
-app.use("/", bookRouter)
+
+app.use("/books", bookRouter)
 app.use("/users", userRouter)
 app.use("/transactions", transactionRouter)
 

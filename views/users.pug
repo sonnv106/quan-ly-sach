@@ -1,32 +1,35 @@
-form(action= "/users/create" method="POST")
-  label Name
-  span &nbsp
-  input(type="text" name="name")
-  br
-  label Phone Number
-  span &nbsp
-  input(type="text" name="phone")
-  br
-  label Email
-  span &nbsp
-  input(type="text" name="email")
-  br
-  label Password
-  span &nbsp
-  input(type="password" name="password")
-  button Create
-table
-  caption List Users
-  tr
-    th Name
-    th Phone
-    th Email
-    th Action
-  each user in users
+extends ../layout/common.pug
+block content
+  form(action= "/users/create" method="POST")
+    div.mb-3
+      label.form-label Name
+      span &nbsp
+      input.form-control(type="text" name="name")
+    div.mb-3
+      label.form-label  Phone Number
+      span &nbsp
+      input.form-control(type="text" name="phone")
+    div.mb-3
+      label.form-label  Email
+      span &nbsp
+      input.form-control(type="text" name="email")
+    div.mb-3
+      label.form-label  Password
+      span &nbsp
+      input.form-control(type="password" name="password")
+    button.btn.btn-outline-primary Create
+  table.table.table-bordered.table-striped
+    caption.caption-top List of users
     tr
-      td= user.name
-      td= user.phone
-      td= user.email
-      td
-        a(href="/users/"+user.id+"/delete") Delete
-        a(href="/users/"+user.id+"/update")  Update
+      th Name
+      th Phone
+      th Email
+      th Action
+    each user in users
+      tr
+        td= user.name
+        td= user.phone
+        td= user.email
+        td
+          a.btn.btn-outline-primary.ms-1(href="/users/"+user.id+"/delete") Delete
+          a.btn.btn-outline-warning.ms-1(href="/users/"+user.id+"/update")  Update

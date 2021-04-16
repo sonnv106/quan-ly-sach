@@ -1,24 +1,31 @@
-h1 Transaction
-form(action= "/transactions/create" method="POST")
-  label(for="bookId") Choose a book
-  select(name="bookId")
-    each book in books
-      option= book.id
-  label(for="userId") Choose an users
-  select(name="userId")
-    each user in users
-      option= user.id
-  button create
-table
-  caption List transaction
-  tr
-    th BookId
-    th UserId
-    th Action
-  each transaction in transactions
+extends ../layout/common.pug
+block content
+  h2.h2.text-primary Transaction
+  form.from-group(action= "/transactions/create" method="POST")
+    div.mb-3
+      label.form-label(for="bookId") Choose a book
+      select.form-select(name="bookId")
+        each book in books
+          option= book.id
+    div.mb-3
+      label.form-label(for="userId") Choose an users
+      select.form-select(name="userId")
+        each user in users
+          option= user.id
+    button.btn.btn-primary Create
+  table.table.table-bordered.table-hover
+    caption.caption-top List transaction
     tr
-      td= transaction.bookId
-      td= transaction.userId
-      td
-        a(href="/transactions/"+transaction.id+"/delete") Delete
-        a(href="/transactions/"+transaction.id+"/update")  Update
+      th BookId
+      th UserId
+      th Action
+      th Complete
+    each transaction in transactions
+      tr
+        td= transaction.bookId
+        td= transaction.userId
+        td
+          a.btn.btn-outline-danger.ms-1(href="/transactions/"+transaction.id+"/delete") Delete
+          a.btn.btn-outline-warning.ms-1(href="/transactions/"+transaction.id+"/update")  Update
+        td
+          a.btn.btn-outline-primary.ms-1(href="/transactions/"+transaction.id+"/complete")= transaction.isComplete

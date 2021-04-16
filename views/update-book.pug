@@ -1,5 +1,8 @@
-form(action= "/books/"+book.id+"/update" method="POST")
-  label Title
-  span &nbsp
-  input(type="text" name="title")
-  button Update
+extends ../layout/common.pug
+block content
+  form(action= "/books/"+book.id+"/update" method="POST")
+    div.mb-3
+      label.form-table Title
+      span &nbsp
+      input.form-control(type="text" name="title")
+    button.btn.btn-primary Update

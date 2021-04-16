@@ -34,17 +34,26 @@
     {
       "bookId": "abz3WKrkg",
       "userId": "tEamb6dKR",
-      "id": "fYRFiR6CU"
+      "id": "fYRFiR6CU",
+      "isComplete": false
     },
     {
       "bookId": "abz3WKrkg",
       "userId": "tEamb6dKR",
-      "id": "Eexje2XhE"
+      "id": "Eexje2XhE",
+      "isComplete": false
     },
     {
       "bookId": "y0lgG55gG",
       "userId": "0pqf7eiQm",
-      "id": "9HoLcs5g6"
+      "id": "9HoLcs5g6",
+      "isComplete": false
+    },
+    {
+      "bookId": "abz3WKrkg",
+      "userId": "tEamb6dKR",
+      "id": "D5zEvxwzv",
+      "isComplete": true
     }
   ]
 }

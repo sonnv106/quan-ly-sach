@@ -1,5 +1,7 @@
-form(action= "/users/"+user.id+"/update" method="POST")
-  label Name
-  span &nbsp
-  input(type="text" name="name")
-  button Update
+extends ../layout/common.pug
+block content
+  form(action= "/users/"+user.id+"/update" method="POST")
+    div.mb-3
+      label.form-label Name
+      input.form-control(type="text" name="name")
+    button.btn.btn-primary Update

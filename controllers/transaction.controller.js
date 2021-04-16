@@ -9,6 +9,7 @@ module.exports.index = (req, res) => {
 };
 module.exports.create = (req, res) => {
   req.body.id = shortid.generate();
+  req.body.isComplete = false;
   db.get("transactions")
     .push(req.body)
     .write();
@@ -17,6 +18,13 @@ module.exports.create = (req, res) => {
 module.exports.delete = (req, res) => {
   db.get("transactions")
     .remove({ id: req.params.id })
+    .write();
+  res.redirect("/transactions");
+};
+module.exports.complete = (req, res) => {
+  db.get("transactions")
+    .find({ id: req.params.id })
+    .assign({ isComplete: true })
     .write();
   res.redirect("/transactions");
 };

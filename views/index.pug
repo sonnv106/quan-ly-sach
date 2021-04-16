@@ -1,25 +1,24 @@
-a(href="/users") Create User     
-a(href="/transactions") Transactions
-form(action= "/books/create" method="POST")
-  label Title
-  span &nbsp
-  input(type="text" name="title")
-  br
-  label Description
-  span &nbsp
-  input(type="text" name="description")
-  button Create
-table
-  caption List book
-  tr
-    th Title
-    th Description
-    th Action
-  each book in books
+extends ../layout/common.pug
+block content
+  form(action= "/books/create" method="POST")
+    label(class="form-label") Title
+    span &nbsp
+    input.form-control(type="text" name="title")
+    br
+    label Description
+    span &nbsp
+    input.form-control(type="text" name="description")
+    button.btn.btn-primary.m-1 Create
+  table.table.table-bordered.border-primary
+    caption List book
     tr
-      td= book.title
-      td= book.description
-      td
-        a(href="/books/"+book.id+"/delete") Delete
-        a(href="/books/"+book.id+"/update")  Update
-  
+      th Title
+      th Description
+      th Action
+    each book in books
+      tr
+        td= book.title
+        td= book.description
+        td
+          a.btn.btn-outline-danger.m-1(href="/books/"+book.id+"/delete") Delete
+          a.btn.btn-outline-primary.m-1(href="/books/"+book.id+"/update")  Update
