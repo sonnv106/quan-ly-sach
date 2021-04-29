@@ -1,23 +1,6 @@
 extends ../layout/common.pug
 block content
-  form(action= "/users/create" method="POST")
-    div.mb-3
-      label.form-label Name
-      span &nbsp
-      input.form-control(type="text" name="name")
-    div.mb-3
-      label.form-label  Phone Number
-      span &nbsp
-      input.form-control(type="text" name="phone")
-    div.mb-3
-      label.form-label  Email
-      span &nbsp
-      input.form-control(type="text" name="email")
-    div.mb-3
-      label.form-label  Password
-      span &nbsp
-      input.form-control(type="password" name="password")
-    button.btn.btn-outline-primary Create
+  a.btn.btn-outline-primary(href="users/create") Create user
   table.table.table-bordered.table-striped
     caption.caption-top List of users
     tr

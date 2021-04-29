@@ -1,14 +1,24 @@
 var shortid = require("shortid");
+var md5= require("md5")
 var db = require("../db.js");
 module.exports.index = (req, res) => {
   res.render("users", {
     users: db.get("users").value()
   });
 };
+module.exports.getCreate = (req, res) => {
+  res.render("create-user");
+};
 module.exports.create = (req, res) => {
-  req.body.id = shortid.generate();
+  var user = {
+    id: shortid.generate(),
+    email: req.body.email,
+    name: req.body.name,
+    phone: req.body.phone,
+    password: md5(req.body.password)
+  }
   db.get("users")
-    .push(req.body)
+    .push(user)
     .write();
   res.redirect("/users");
 };

@@ -9,16 +9,27 @@ block content
     span &nbsp
     input.form-control(type="text" name="description")
     button.btn.btn-primary.m-1 Create
-  table.table.table-bordered.border-primary
-    caption List book
-    tr
-      th Title
-      th Description
-      th Action
-    each book in books
-      tr
-        td= book.title
-        td= book.description
-        td
-          a.btn.btn-outline-danger.m-1(href="/books/"+book.id+"/delete") Delete
-          a.btn.btn-outline-primary.m-1(href="/books/"+book.id+"/update")  Update
+  div.container
+    div.row
+       each book in books
+          div.col-3
+            div.card
+              img.card-img-top(src=book.image)
+              div.card-body
+                h5.card-title=book.title
+                p.card-text.overflow-hidden.text-truncate= book.description
+              div.card-body
+                a.btn.btn-outline-danger.m-1(href="/books/"+book.id+"/delete") Delete
+                a.btn.btn-outline-primary.m-1(href="/books/"+book.id+"/update")  Update
+    div.row.mt-3
+      if pages>0
+        nav.mx-auto
+          ul.pagination
+            - var i = 1
+            while i< pages
+              li.page-item
+                if i==page
+                  a.page-link.disabled(href="/books"+"?page="+i)= i++
+                else 
+                  a.page-link(href="/books"+"?page="+i)= i++
+              
