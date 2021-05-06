@@ -1,7 +1,11 @@
 extends ../layout/common.pug
 block content
-  form(action= "/users/"+user.id+"/update" method="POST")
+  form(action= "/users/"+user.id+"/update" method="POST" enctype="multipart/form-data")
     div.mb-3
-      label.form-label Name
-      input.form-control(type="text" name="name")
+      label(for="name").form-label Name
+      input#name.form-control(type="text" name="name")
+      label(for="phone").form-label Phone
+      input#phone.form-control(type="text" name="phone")
+      label(for="avatar").form-label Avatar
+      input#avatar.form-control(type="file" name="avatar")
     button.btn.btn-primary Update
